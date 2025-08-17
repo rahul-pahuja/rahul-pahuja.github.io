@@ -280,10 +280,10 @@ nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active {
   display: flex;
   margin: 0;
   justify-content: center;
+  gap: 1em;
 }
 ._socialIcons_yqu38_1 ._socialIcon_yqu38_1 {
   height: 0.8em;
-  margin-right: 1em;
 }
 ._socialIcons_yqu38_1 ._socialIcon_yqu38_1:hover {
   filter: opacity(75%);
@@ -348,9 +348,23 @@ p[data-astro-cid-sz7xmlte] {
 @media (max-width: 750px) {
   .social[data-astro-cid-sz7xmlte] {
     flex-direction: column-reverse;
+    justify-content: center;
   }
   .copyright[data-astro-cid-sz7xmlte] {
     text-align: center;
+  }
+  .base-footer[data-astro-cid-sz7xmlte] .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+  .base-footer[data-astro-cid-sz7xmlte] .footer-left {
+    order: 2;
+  }
+  .base-footer[data-astro-cid-sz7xmlte] .social {
+    order: 1;
+    display: flex;
+    justify-content: center;
   }
 }
 @font-face {
@@ -545,12 +559,12 @@ a[data-astro-cid-udmhiruz].linkToAll {
   font-weight: 700;
 }
 
-/* Past Experience Titles */
-.past-experience-section ._articleTitle_1jx5m_10 a.article-link {
-  color: rgb(var(--black)) !important; /* Color same as Past Experience heading */
+/* Work Experience Titles */
+.work-experience-section ._articleTitle_1jx5m_10 a.article-link {
+  color: rgb(var(--black)) !important; /* Color same as Work Experience heading */
 }
 
-.past-experience-section ._articleTitle_1jx5m_10 a.article-link:hover {
+.work-experience-section ._articleTitle_1jx5m_10 a.article-link:hover {
   color: #724b7b !important; /* Original color on hover */
 }
 ._articleBlurb_1jx5m_19 {
@@ -560,6 +574,9 @@ a[data-astro-cid-udmhiruz].linkToAll {
 }
 ._articleBlurb_1jx5m_19 p {
   margin: 0;
+}
+._articleBlurb_1jx5m_19 ul {
+  padding-left: 1em;
 }
 ._articleBlurb_1jx5m_19:hover {
   background-color: #e0e2ff80;
@@ -821,7 +838,7 @@ a[data-astro-cid-shvfy7it]:hover {
   font-weight: 500;
 }
 
-.past-experience-section {
+.work-experience-section {
   flex: 3;
 }
 
@@ -829,4 +846,55 @@ a[data-astro-cid-shvfy7it]:hover {
   flex: 2;
   position: relative;
   z-index: 2;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em; /* Add some padding */
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* Space between avatar and text */
+}
+
+.footer-avatar {
+  width: 48px; /* Further increased size for better visibility */
+  height: 48px;
+  border-radius: 50%; /* Make it round */
+}
+
+.footer-copyright {
+  font-size: 0.75em; /* Adjusted font size to match screenshot */
+  color: #ccc; /* Adjust color as needed */
+}
+
+@media (max-width: 750px) {
+  .social[data-astro-cid-sz7xmlte] {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  .copyright[data-astro-cid-sz7xmlte] {
+    text-align: center;
+  }
+  .base-footer[data-astro-cid-sz7xmlte] .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+  .base-footer[data-astro-cid-sz7xmlte] .footer-left {
+    order: 2;
+  }
+  .base-footer[data-astro-cid-sz7xmlte] .social {
+    order: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .footer-avatar {
+    width: 48px; /* Even bigger on mobile */
+    height: 48px;
+  }
 }
