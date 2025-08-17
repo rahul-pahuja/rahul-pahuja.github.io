@@ -1,0 +1,170 @@
+/* Experience Modal Styles */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(42, 33, 53, 0.8); /* Dark overlay with opacity */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* Remove padding to take full space on mobile */
+}
+
+.modal-content {
+  background-color: #fbf4ff; /* Match the site's background color */
+  margin: auto;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 960px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  position: relative;
+}
+
+.modal-header {
+  padding: 1em;
+  background-color: transparent; /* Transparent background to match the site's section headers */
+  color: #2a2135;
+  border-bottom: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #2a2135;
+  font-size: 2em;
+  flex-grow: 1;
+}
+
+.modal-body {
+  padding: 1em;
+  max-height: calc(90vh - 100px);
+  overflow-y: auto;
+}
+
+/* Close button styles */
+#close-modal {
+  float: right;
+  margin-top: 0;
+  background: rgba(180, 170, 255, 0.33) !important; /* Same as skill-tag background */
+  color: #2a2135 !important; /* Dark text */
+  padding: 0.4em 0.8em;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  margin-left: 1rem; /* Add some space between title and button */
+}
+
+/* Timeline styles in modal */
+._experience_timeline {
+  position: relative;
+  padding-left: 20px; /* Space for the line and dots */
+}
+
+._experience_timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px; /* Adjust to center the line */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--accent); /* Color of the timeline line */
+}
+
+._experience_timeline ._articleBlurb_1jx5m_19 {
+  position: relative;
+  margin-bottom: 2em; /* Space between entries */
+}
+
+._experience_timeline ._articleBlurb_1jx5m_19::before {
+  content: '';
+  position: absolute;
+  left: -15px; /* Position the dot on the line */
+  top: 10px; /* Adjust vertically */
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-dark); /* Default color of the timeline dots */
+  border: 2px solid var(--accent); /* Border around the dot */
+  z-index: 1; /* Ensure dot is above the line */
+}
+
+.current_experience::before {
+  animation: blink 1s infinite;
+}
+
+.past_experience::before {
+  background-color: white; /* White dot */
+  border: 2px solid var(--accent-dark); /* Hollow effect */
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Responsive modal */
+@media (max-width: 720px) {
+  .modal {
+    padding: 0;
+    align-items: stretch;
+    justify-content: stretch;
+  }
+  
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    margin: 0;
+  }
+  
+  .modal-header {
+    padding: 1em;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.5em; /* Smaller font on mobile */
+  }
+  
+  .modal-body {
+    max-height: calc(100vh - 120px);
+    padding: 1em;
+  }
+  
+  #close-modal {
+    font-size: 0.7rem;
+    padding: 0.3em 0.6em;
+  }
+  
+  /* Mobile optimizations for timeline */
+  ._experience_timeline {
+    padding-left: 15px; /* Reduce padding on mobile */
+  }
+  
+  ._experience_timeline::before {
+    left: 4px; /* Adjust line position for mobile */
+  }
+  
+  ._experience_timeline ._articleBlurb_1jx5m_19::before {
+    left: -10px; /* Adjust dot position for mobile */
+    top: 8px; /* Adjust vertically for mobile */
+    width: 8px;
+    height: 8px;
+  }
+  
+  ._experience_timeline ._articleBlurb_1jx5m_19 {
+    margin-bottom: 1.5em; /* Reduce space between entries on mobile */
+  }
+}

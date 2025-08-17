@@ -521,12 +521,13 @@ a[data-astro-cid-udmhiruz].linkToAll {
   font-size: 0.75em;
   display: inline-block;
   padding: 0.4rem 0.6rem;
-  background: #dfe1ff;
-  border-radius: 5px;
+  background: rgba(180, 170, 255, 0.33); /* Same as skill-tag background */
+  border-radius: 20px; /* Match skill-tag border radius */
   color: #2a2135;
   font-size: 0.75rem;
   font-weight: 500;
   margin: 0.25rem 1rem 0 2rem;
+  text-decoration: none;
 }
 .row[data-astro-cid-j7pv25f6] {
   display: flex;
@@ -629,16 +630,42 @@ li a,
 ._linkToAll_1jx5m_77 {
   display: inline-block;
   padding: 0.4rem 0.6rem;
-  background: #dfe1ff;
-  border-radius: 5px;
+  background: rgba(180, 170, 255, 0.33); /* Same as skill-tag background */
+  border-radius: 20px; /* Match skill-tag border radius */
   color: #2a2135;
   font-size: 0.75rem;
   font-weight: 500;
   margin: 0.25rem 1rem 0 2rem;
+  text-decoration: none;
+  white-space: nowrap; /* Prevent text wrapping */
+  vertical-align: middle; /* Align vertically with heading */
 }
+
 ._linkToAll_1jx5m_77:hover {
+  background: rgba(180, 170, 255, 0.5); /* Slightly darker on hover */
   color: #2a2135;
-  background: #d1d4fd;
+}
+
+/* Mobile-specific adjustments for the View Details button */
+@media (max-width: 720px) {
+  ._linkToAll_1jx5m_77 {
+    margin: 0.25rem 0 0 1rem; /* Adjusted margin for mobile */
+    font-size: 0.7rem; /* Slightly smaller font on mobile */
+    padding: 0.3rem 0.5rem; /* Adjusted padding for mobile */
+  }
+  
+  /* Ensure the button stays on the same line as the heading */
+  ._subheading_1jx5m_98 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  ._subheading_1jx5m_98 mark {
+    flex-grow: 1;
+    margin-right: 0.5rem;
+  }
 }
 ._subheading_1jx5m_98 {
   font-size: 2em;
@@ -795,6 +822,28 @@ a[data-astro-cid-shvfy7it]:hover {
   0% { opacity: 1; }
   50% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+/* Mobile optimizations for timeline */
+@media (max-width: 720px) {
+  ._experience_timeline {
+    padding-left: 15px; /* Reduce padding on mobile */
+  }
+  
+  ._experience_timeline::before {
+    left: 4px; /* Adjust line position for mobile */
+  }
+  
+  ._experience_timeline ._articleBlurb_1jx5m_19::before {
+    left: -10px; /* Adjust dot position for mobile */
+    top: 8px; /* Adjust vertically for mobile */
+    width: 8px;
+    height: 8px;
+  }
+  
+  ._experience_timeline ._articleBlurb_1jx5m_19 {
+    margin-bottom: 1.5em; /* Reduce space between entries on mobile */
+  }
 }
 
 /* Skills section styles */

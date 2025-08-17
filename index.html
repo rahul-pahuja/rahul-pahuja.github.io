@@ -31,6 +31,7 @@
     <script src="https://cdn.usefathom.com/script.js" data-site="RVUJLOOP" defer></script>
     <!--- Mastodon Author Tag -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="modal.css" />
   </head>
   <body data-astro-cid-j7pv25f6>
     <header data-astro-cid-3ef6ksr2></header>
@@ -62,16 +63,18 @@
       <div id="canvasDiv" class="_tape_1vjyq_1"></div>
       <!-- <script is:inline src='/confetti.js'></script> -->
       <script src="./lines.js"></script>
+      <script src="./experience.js"></script>
       <div class="row" data-astro-cid-j7pv25f6>
         <div class="work-experience-section">
           <h2 class="_subheading_1jx5m_98">
             <mark class="_highlighted_13n6x_1">Work Experience</mark>
-            <a href="/work-experience/" class="_linkToAll_1jx5m_77">
+            <a href="#" class="_linkToAll_1jx5m_77" id="viewAllExperience">
               <!-- -->
-              View All Experience
+              View Details
             </a>
           </h2>
-          <div class="_experience_timeline">
+          <!-- Summary Experience (Visible by default) -->
+          <div class="_experience_timeline" id="summaryExperience">
             <div class="_articleBlurb_1jx5m_19 current_experience">
               <div>
                 <p class="_articleTitle_1jx5m_10">
@@ -79,13 +82,6 @@
                   <a class="article-link">SDE 2, AngelOne - Remote</a>
                 </p>
                 <p>March 2024 - Present</p>
-                <ul>
-                  <li>Plugged in new lenders → Helped integrate multiple lenders into our ecosystem, directly boosting revenue and opening more credit possibilities.</li>
-                  <li>Data privacy, but make it airtight → Implemented encryption and tokenization strategies to align with DPDP, keeping sensitive user info isolated and secure.</li>
-                  <li>Refactoring with purpose → Restructured core flows so onboarding new lenders is smoother and future-ready — now we can support multiple product lines (PL, LAMF, LAS…) with ease.</li>
-                  <li>Services that don't boss around → Designed, implemented, and led a service that stores and returns data in the same format — highly decoupled, caller-agnostic, and flexible.</li>
-                  <li>Workflows that flow → Reimagined user journeys with graph-powered workflows, making the system more declarative, less code-heavy, and far more adaptable.</li>
-                </ul>
               </div>
             </div>
             <div class="_articleBlurb_1jx5m_19 past_experience">
@@ -117,7 +113,68 @@
               </div>
             </div>
           </div>
+          
+          <!-- Detailed Experience (Hidden by default) -->
+          <div class="_experience_timeline" id="detailedExperience" style="display: none;">
+            <div class="_articleBlurb_1jx5m_19">
+              <div>
+                <p class="_articleTitle_1jx5m_10">
+                  <a class="article-link">SDE 2, ZestMoney - Bengaluru, Karnataka</a>
+                </p>
+                <p>March 2022 - February 2024</p>
+                <ul>
+                  <li>Integrated multiple lenders → expanded credit options and boosted revenue.</li>
+                  <li>Refactored core flows → smoother lender onboarding and support for multiple product lines (PL, LAMF, LAS).</li>
+                  <li>Designed decoupled services → flexible storage/return of data without caller dependency.</li>
+                  <li>Reimagined user journeys → shifted to graph-powered workflows, making systems more declarative, less code-heavy, and adaptable.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="_articleBlurb_1jx5m_19">
+              <div>
+                <p class="_articleTitle_1jx5m_10">
+                  <a class="article-link">Software Developer, Affable.ai - Remote</a>
+                </p>
+                <p>May 2021 - March 2022</p>
+                <ul>
+                  <li>Built a creator–brand collaboration platform → streamlined negotiations and campaign management.</li>
+                  <li>Engineered a Twitter ingestion pipeline → stayed compliant while scaling data capture.</li>
+                  <li>Refactored core systems → cut 20% database calls and improved efficiency.</li>
+                  <li>Developed a dynamic doc platform → edit/share with user-group–based access control.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="_articleBlurb_1jx5m_19">
+              <div>
+                <p class="_articleTitle_1jx5m_10">
+                  <a class="article-link">System Engineer, Infosys - Bengaluru, Karnataka</a>
+                </p>
+                <p>August 2019 - May 2021</p>
+                <ul>
+                  <li>Strengthened backend fundamentals → Java, Spring Boot, and enterprise-grade systems.</li>
+                  <li>Delivered enhancements and bug fixes → improved performance in high-volume apps.</li>
+                  <li>Gained hands-on experience in APIs, database design, and system integrations.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
           <br />
+        </div>
+        <!-- Experience Modal -->
+        <div id="experience-modal" class="modal" style="display: none;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="_subheading_1jx5m_98">
+                <mark class="_highlighted_13n6x_1">Work Experience</mark>
+                <a href="#" id="close-modal" class="_linkToAll_1jx5m_77">
+                  Close
+                </a>
+              </h2>
+            </div>
+            <div class="modal-body">
+              <div id="experience-content"></div>
+            </div>
+          </div>
         </div>
         <div data-astro-cid-udmhiruz class="skills-section">
           <div class="simple-row" data-astro-cid-udmhiruz>
