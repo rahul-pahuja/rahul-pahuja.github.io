@@ -904,6 +904,8 @@ a[data-astro-cid-shvfy7it]:hover {
 
 .work-experience-section {
   flex: 3;
+  position: relative;
+  z-index: 3;
 }
 
 .skills-section {
