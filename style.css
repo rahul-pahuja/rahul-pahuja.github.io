@@ -544,6 +544,12 @@ a[data-astro-cid-udmhiruz].linkToAll {
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
+  display: inline-block;
+  margin-top: 0.5em;
+}
+
+._readMore_1jx5m_2:hover {
+  color: var(--accent);
 }
 ._articleTitle_1jx5m_10 {
   display: flex;
@@ -566,12 +572,21 @@ a[data-astro-cid-udmhiruz].linkToAll {
 }
 
 .work-experience-section ._articleTitle_1jx5m_10 a.article-link:hover {
-  color: #724b7b !important; /* Original color on hover */
+  color: #724b7b !important; /* Same as Read More link color */
 }
 ._articleBlurb_1jx5m_19 {
   padding: 0.5em;
   border-left: 5px solid #fbf4ff;
   border-radius: 2px 10px 10px 2px;
+  transition: background-color 0.3s, border-left 0.3s;
+}
+
+._articleBlurb_1jx5m_19.past_experience {
+  border-left: 5px solid #fbf4ff;
+}
+
+._articleBlurb_1jx5m_19.current_experience {
+  border-left: 5px solid #fbf4ff;
 }
 ._articleBlurb_1jx5m_19 p {
   margin: 0;

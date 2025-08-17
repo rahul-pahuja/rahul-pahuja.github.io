@@ -86,6 +86,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
+  // Add event listeners to "Read More" links
+  const readMoreLinks = document.querySelectorAll('a._readMore_1jx5m_2');
+  readMoreLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Get the experience index from the data attribute
+      const experienceIndex = parseInt(this.getAttribute('data-experience-index'));
+      
+      // Show the modal
+      modal.style.display = 'flex';
+      // Prevent background scrolling when modal is open
+      document.body.style.overflow = 'hidden';
+      
+      // Wait for the modal to be displayed, then scroll to the appropriate section
+      setTimeout(() => {
+        // Get all the experience entries in the modal
+        const modalEntries = experienceContent.querySelectorAll('._articleBlurb_1jx5m_19');
+        
+        // If the entry exists, scroll to it
+        if (modalEntries[experienceIndex]) {
+          modalEntries[experienceIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // Add a temporary highlight effect
+          modalEntries[experienceIndex].style.backgroundColor = '#e0e2ff';
+          modalEntries[experienceIndex].style.borderLeft = '5px solid #b4aaff';
+          
+          // Remove the highlight after 2 seconds
+          setTimeout(() => {
+            modalEntries[experienceIndex].style.backgroundColor = '';
+            modalEntries[experienceIndex].style.borderLeft = '';
+          }, 2000);
+        }
+      }, 100); // Small delay to ensure the modal is fully rendered
+    });
+  });
+  
   // Add event listener to close button
   if (closeModal) {
     closeModal.addEventListener('click', function(e) {
