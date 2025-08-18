@@ -6,15 +6,18 @@
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(42, 33, 53, 0.8); /* Dark overlay with opacity */
+  background-color: rgba(42, 33, 53, 0.8);
+  /* Dark overlay with opacity */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0; /* Remove padding to take full space on mobile */
+  padding: 0;
+  /* Remove padding to take full space on mobile */
 }
 
 .modal-content {
-  background-color: #fbf4ff; /* Match the site's background color */
+  background-color: #fbf4ff;
+  /* Match the site's background color */
   margin: auto;
   padding: 0;
   border: none;
@@ -25,16 +28,21 @@
   overflow: hidden;
   box-shadow: var(--box-shadow);
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-header {
   padding: 1em;
-  background-color: transparent; /* Transparent background to match the site's section headers */
+  background-color: transparent;
+  /* Transparent background to match the site's section headers */
   color: #2a2135;
   border-bottom: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
+  /* Prevent header from shrinking */
 }
 
 .modal-header h2 {
@@ -46,57 +54,77 @@
 
 .modal-body {
   padding: 1em;
-  max-height: calc(90vh - 100px);
+  flex: 1;
   overflow-y: auto;
+  min-height: 0;
+  /* Allow flex item to shrink */
 }
 
 /* Close button styles */
 #close-modal {
   float: right;
   margin-top: 0;
-  background: rgba(180, 170, 255, 0.33) !important; /* Same as skill-tag background */
-  color: #2a2135 !important; /* Dark text */
+  background: rgba(180, 170, 255, 0.33) !important;
+  /* Same as skill-tag background */
+  color: #2a2135 !important;
+  /* Dark text */
   padding: 0.4em 0.8em;
   border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
-  margin-left: 1rem; /* Add some space between title and button */
+  margin-left: 1rem;
+  /* Add some space between title and button */
+  transition: background-color 0.3s ease;
+}
+
+#close-modal:hover {
+  background: rgba(180, 170, 255, 0.6) !important;
+  /* Same hover effect as skill tags */
 }
 
 /* Timeline styles in modal */
 ._experience_timeline {
   position: relative;
-  padding-left: 20px; /* Space for the line and dots */
+  padding-left: 20px;
+  /* Space for the line and dots */
 }
 
 ._experience_timeline::before {
   content: '';
   position: absolute;
-  left: 9px; /* Adjust to center the line */
+  left: 9px;
+  /* Adjust to center the line */
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: var(--accent); /* Color of the timeline line */
+  background-color: var(--accent);
+  /* Color of the timeline line */
 }
 
 ._experience_timeline ._articleBlurb_1jx5m_19 {
   position: relative;
-  margin-bottom: 2em; /* Space between entries */
+  margin-bottom: 2em;
+  /* Space between entries */
 }
 
 ._experience_timeline ._articleBlurb_1jx5m_19::before {
   content: '';
   position: absolute;
-  left: -15px; /* Position the dot on the line */
-  top: 10px; /* Adjust vertically */
+  left: -15px;
+  /* Position the dot on the line */
+  top: 10px;
+  /* Adjust vertically */
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: var(--accent-dark); /* Default color of the timeline dots */
-  border: 2px solid var(--accent); /* Border around the dot */
-  z-index: 1; /* Ensure dot is above the line */
+  background-color: var(--accent-dark);
+  /* Default color of the timeline dots */
+  border: 2px solid var(--accent);
+  /* Border around the dot */
+  z-index: 1;
+  /* Ensure dot is above the line */
 }
 
 .current_experience::before {
@@ -104,14 +132,35 @@
 }
 
 .past_experience::before {
-  background-color: white; /* White dot */
-  border: 2px solid var(--accent-dark); /* Hollow effect */
+  background-color: white;
+  /* White dot */
+  border: 2px solid var(--accent-dark);
+  /* Hollow effect */
 }
 
 @keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Modal Work Experience Titles - match main page behavior */
+.modal ._articleTitle_1jx5m_10 a.article-link {
+  color: rgb(var(--black)) !important;
+  /* Default color same as main page */
+}
+
+.modal ._articleTitle_1jx5m_10 a.article-link:hover {
+  color: #724b7b !important;
+  /* Hover color same as main page */
 }
 
 /* Responsive modal */
@@ -121,50 +170,62 @@
     align-items: stretch;
     justify-content: stretch;
   }
-  
+
   .modal-content {
     width: 100%;
     height: 100%;
     max-height: 100vh;
     border-radius: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
   }
-  
+
   .modal-header {
     padding: 1em;
+    flex-shrink: 0;
   }
-  
+
   .modal-header h2 {
-    font-size: 1.5em; /* Smaller font on mobile */
+    font-size: 1.5em;
+    /* Smaller font on mobile */
   }
-  
+
   .modal-body {
-    max-height: calc(100vh - 120px);
+    flex: 1;
+    overflow-y: auto;
     padding: 1em;
+    min-height: 0;
+    /* Allow flex item to shrink */
   }
-  
+
   #close-modal {
     font-size: 0.7rem;
     padding: 0.3em 0.6em;
   }
-  
+
   /* Mobile optimizations for timeline */
   ._experience_timeline {
-    padding-left: 15px; /* Reduce padding on mobile */
+    padding-left: 15px;
+    /* Reduce padding on mobile */
   }
-  
+
   ._experience_timeline::before {
-    left: 4px; /* Adjust line position for mobile */
+    left: 4px;
+    /* Adjust line position for mobile */
   }
-  
+
   ._experience_timeline ._articleBlurb_1jx5m_19::before {
-    left: -10px; /* Adjust dot position for mobile */
-    top: 8px; /* Adjust vertically for mobile */
+    left: -10px;
+    /* Adjust dot position for mobile */
+    top: 8px;
+    /* Adjust vertically for mobile */
     width: 8px;
     height: 8px;
   }
-  
+
   ._experience_timeline ._articleBlurb_1jx5m_19 {
-    margin-bottom: 1.5em; /* Reduce space between entries on mobile */
+    margin-bottom: 1.5em;
+    /* Reduce space between entries on mobile */
   }
 }

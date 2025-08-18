@@ -107,7 +107,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // If the entry exists, scroll to it
         if (modalEntries[experienceIndex]) {
-          modalEntries[experienceIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // For the first entry (index 0), scroll to start to avoid hiding the title
+          const scrollOptions = experienceIndex === 0 
+            ? { behavior: 'smooth', block: 'start' }
+            : { behavior: 'smooth', block: 'center' };
+            
+          modalEntries[experienceIndex].scrollIntoView(scrollOptions);
           
           // Add a temporary highlight effect
           modalEntries[experienceIndex].style.backgroundColor = '#e0e2ff';
